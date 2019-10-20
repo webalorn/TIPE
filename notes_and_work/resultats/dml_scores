@@ -1,0 +1,82 @@
+0 -> 98.02 | 98.12
+0.0005 -> 98.29 | 98.16
+0.005 -> 97.96 | 97.75
+
+
+sans batch norm: (300 100 10 weakReLU)
+98.03 | 97.89
+98.07 | 98.12
+
+avec batch norm:
+98.14 | 98.37 [2 norm]
+98.22 | 98.11 [1 norm]
+98.05 | 98.23 [3 norm]
+
+
+
+Conv layers learning rate: 0.3 0.03 0.003
+98.81 | 98.90
+98.56 | 98.60
+97.
+
+Conv layers learning rate: 0.3 0.5 0.1
+98.95 | 98.98
+
+
+
+With padding: 99.00 | 99.25
+
+
+
+
+===== DataSet test
+
+Test accuracy: 99.50% (597 over 600 examples) 
+
+First fish => nb rightly classified : 199 / 200 | nb false positive : 2
+Black fish => nb rightly classified : 198 / 200 | nb false positive : 0
+Clown fish => nb rightly classified : 200 / 200 | nb false positive : 1
+
+First fish -> 199[First fish] 2[Black fish] 0[Clown fish] 
+Black fish -> 0[First fish] 198[Black fish] 0[Clown fish] 
+Clown fish -> 1[First fish] 0[Black fish] 200[Clown fish] 
+
+
+===== DataSet test
+
+Articial neural network : Sequential
+- Layer 0 : InputLayer           (3, 50, 50)                 
+- Layer 1 : BatchNorm            (3, 50, 50)   [1 inputs: 0] 
+- Layer 2 : Convolution2D        (20, 46, 46)  [1 inputs: 1] 
+- Layer 3 : Pool2D               (20, 23, 23)  [1 inputs: 2] 
+- Layer 4 : Activation tanh      (20, 23, 23)  [1 inputs: 3] 
+- Layer 5 : BatchNorm            (20, 23, 23)  [1 inputs: 4] 
+- Layer 6 : Convolution2D        (20, 19, 19)  [1 inputs: 5] 
+- Layer 7 : Pool2D               (20, 9, 9)    [1 inputs: 6] 
+- Layer 8 : Activation tanh      (20, 9, 9)    [1 inputs: 7] 
+- Layer 9 : BatchNorm            (20, 9, 9)    [1 inputs: 8] 
+- Layer 10 : Dense               (800,)        [1 inputs: 9] 
+- Layer 11 : Activation tanh     (800,)        [1 inputs: 10]
+- Layer 12 : BatchNorm           (800,)        [1 inputs: 11]
+- Layer 13 : Dense               (100,)        [1 inputs: 12]
+- Layer 14 : Activation tanh     (100,)        [1 inputs: 13]
+- Layer 15 : Dense               (3,)          [1 inputs: 14]
+- Layer 16 : Activation softmax  (3,)          [1 inputs: 15]
+
+Test accuracy: 99.50% (597 over 600 examples) 
+
+First fish => nb rightly classified : 199 / 200 | nb false positive : 2
+Black fish => nb rightly classified : 199 / 200 | nb false positive : 1
+Clown fish => nb rightly classified : 199 / 200 | nb false positive : 0
+
+First fish -> 199[First fish] 1[Black fish] 1[Clown fish] 
+Black fish -> 1[First fish] 199[Black fish] 0[Clown fish] 
+Clown fish -> 0[First fish] 0[Black fish] 199[Clown fish] 
+
+
+-> momentum = 99.50
+-> 1) gradient 0.02
+-> 2) gradient 0.04
+
+
+Tester avec plus de filtres / same convolution / 800 + 300 ?

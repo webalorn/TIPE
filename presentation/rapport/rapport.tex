@@ -1,0 +1,70 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = fr_FR
+
+\documentclass[a4paper,twoside]{article} % removed : french
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} %encodage utf8
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={Common,TeX}}
+\usepackage[pdfusetitle,hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array,booktabs}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usetikzlibrary{fadings}
+
+\usepackage{verbatim}
+\usepackage{scalefnt}
+\usepackage{fp}
+
+\usepackage[procnames]{listings}
+\usepackage{amssymb}
+\usepackage{hhline,colortbl}
+\usepackage{algpseudocode}
+
+\usepackage{tcolorbox}  %pour créer des cadres, très riche, regarder sur le net pour plus d'exemples
+\tcbuselibrary{breakable,listings} %permet l'insertion de programme dans des boites 
+\tcbuselibrary{theorems}
+
+\graphicspath{{./figures/}}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt 
+
+\title{Reconnaissance efficace d’objets sous-marins}
+\author{Vallaeys Théophane}
+\date{2019-2020}
+
+\begin{document}
+	\maketitle
+	
+	Les milieux sous-marins sont des environnements complexes pouvant contenir de nombreuses espèces animales et végétales, objets et débris. Être capable de détecter et identifier correctement de tels objets sur des images sous-marines possède des applications directe pour l'automatisation de drones, ou encore l'analyse non-destructive des population.
+	
+	Je me suis ainsi intéressé à la conception d'un système capable de classifier des images parmi un \textbf{nombre de classes important}, sous la contrainte d'être capable d'\textbf{apprendre à identifier de nouveaux objets rapidement}, sans un lourd ré-entrainement nécessité par des réseaux de neurones artificiels classiques. L'intérêt est de le rendre adaptatif à la reconnaissance de nouvelles espèces marines ou d'objets précis.
+	
+	Je supposerai par la suite que le lecteur à possède des connaissances sur les bases de l'apprentissage automatique, et plus particulièrement sur le fonctionnement des réseaux de neurones artificiels.
+	
+	\tableofcontents
+	
+	\section{Méthodes simples de classification}
+	
+	
+	
+	\section{Transformation de l'image à l'aide d'un réseau siamois}
+	
+	\section{Classification rapide à l'aides des plus proches voisins}
+	
+	
+	
+\end{document}

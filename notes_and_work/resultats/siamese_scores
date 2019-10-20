@@ -1,0 +1,73 @@
+==== Classifier ?
+
+Conv : 99.9961 | 96.4864
+Conv 2 : 100% | 98.108
+Res 1 : 99.93 | 96.55
+
+Conv 2:
+- loss: 0.0220 - accuracy: 0.9966 - val_loss: 0.1644 - val_accuracy: 0.9595
+- loss: 0.0152 - accuracy: 0.9982 - val_loss: 0.1415 - val_accuracy: 0.9696
+- loss: 0.0072 - accuracy: 0.9997 - val_loss: 0.1370 - val_accuracy: 0.9676
+
+Conv 3 :
+- loss: 0.3078 - accuracy: 0.9974 - val_loss: 0.4763 - val_accuracy: 0.9541
+
+==== Same model (pure KNN)
+150 : 8.761609907120743%
+23 in : 62.7195836044242%
+23 out : 38.841899804814574%
+
+==== Same model with mobile net
+150 : 26%
+23 in : 92%
+23 out : 67%
+
+
+==== Linear 1 with mobile net
+150 : 12%
+23 in : 80.5%
+23 out : 54%
+
+
+==== Dense 1
+
+150 : 13%
+
+
+==== Transfer Conv_2
+
+--> Untrained Trunk only
+
+150 : 16.5%
+23 in : 100%
+23 out : 97.8%
+
+--> Untrained
+
+150 : 11.5%
+23 in : 99.0%
+23 out : 94.40
+
+--> Trained
+
+worst
+150 : 6.5%
+23 in : 98.5%
+23 out : 90%
+
+--> Trained with only f4k dataset
+
+23 in : 97.5%
+23 out : 93.5%
+
+--> Trained with both datasets
+
+150 : 13% | 28.5 | 96.5% / 90.75
+23 in : 76.5% | 81.5 | 73%
+23 out : 64% | 64.8 | 61.3%
+
+--> 1.2 both datasets
+
+150 : 91.85758513931889%
+23 in : 73.625%
+23 out : 61.288223812621986%
