@@ -1,0 +1,60 @@
+Macros and structures
+
+Handled keys
+	As of version 3.0.1, the following keys are supported:
+		-Every key which unicode value is not a control character;
+		-SDLK_BACKSPACE;
+		-SDLK_DELETE;
+		-SDLK_RETURN;
+		-SDLK_ESCAPE;
+		-SDLK_LEFT;
+		-SDLK_RIGHT;
+		-SDLK_HOME;
+		-SDLK_END;
+		-SDLK_INSERT;
+
+	Note: Use SDL_Input_IsHandled() function to test whether a specific keypress
+		is handled or not.
+
+SDL_INPUT_VERSION
+	From version 3.0.0, SDL_INPUT_VERSION() macro stores major, minor and
+		patchlevel in a SDL_Version pointer passed as parameter.
+	In version 2.0.0, the macro SDL_INPUT_VERSION returns the library's version
+		as MAJOR_MINOR_PATCH ( 2_0_0 ).
+	In version 1.03, the macro SDL_INPUT_VERSION returns the library's version
+		as a floating point number ( 1.03 ).
+
+SDL_INPUT_CAPS
+	Intended for internal use only
+
+SDL_INPUT_IS_PRINT( SDL_Event )
+	Used to determine if a certain event may be stored in SDL_Input->string or not.
+	Note: Unicode *MUST* be enabled in order for this to work. Sending an event
+		catched before Unicode was enabled will result in an undefined behaviour.
+
+SDL_INPUT_INSERT_MODE
+	Enumeration used in handling input's insertion mode.
+		SDL_INPUT_INS_MOD_QUERY		---	Queries actual insertion mode;
+		SDL_INPUT_INS_MOD_INSERT	--- Sets insertion mode to insert;
+		SDL_INPUT_INS_MOD_CRUSH		--- Sets insertion mode to crush;
+		SDL_INPUT_INS_MOD_TOGGLE	--- Toggles insertion mode ( insert to crush
+											and vice-versa);
+
+SDL_Input
+	Main SDL_Input library's structure.
+
+typedef struct {
+    unsigned char	*string;		/*Read-only*/
+	long			cursorIndex,	/*Read-only*/
+					maxChars;		/*Read-only*/
+	SDL_Event		lastEvent;
+} SDL_Input;
+
+	string		--- Pointer to unsigned char array where input string is stored;
+	cursorIndex	--- Cursor's current index (such that DELETE key would delete
+						character SDL_Input->string[ SDL_Input->cursorIndex ]
+						if any);
+	maxChars	--- Maximum number of printable characters SDL_Input->string may
+						hold, so that sizeof( SDL_Input->string ) ==
+							maxChars + 1;
+	lastEvent	--- Last event pulled out of the queue by SDL_Input (copy);

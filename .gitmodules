@@ -1,0 +1,6 @@
+[submodule "code/deepMola"]
+	path = code/deepMola
+	url = https://github.com/webalorn/deep-mola
+[submodule "code/neural-networks-and-deep-learning"]
+	path = code/neural-networks-and-deep-learning
+	url = https://github.com/mnielsen/neural-networks-and-deep-learning.git

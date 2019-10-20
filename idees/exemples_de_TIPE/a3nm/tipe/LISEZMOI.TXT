@@ -1,0 +1,23 @@
+Le programme nécessite un fichier WOT pour fonctionner. Voir <http://www.lysator.liu.se/~jc/wotsap/download.html>.
+
+La compilation n'a pas été testée sur des architectures autres que amd64. Regardez cependant SDL_Input_32.
+
+Pour compiler et exécuter le programme, il vous faut un environnement GNU ar, et les librairies de développement SDL et SDL_ttf.
+
+Pour compiler le rapport, il vous faut un environnement convert, un environnement LaTeX avec pdfcrop, et OpenOffice.org. La conversion des illustrations du format ODG vers le format PDF nécessite l'ajout d'une macro à OpenOffice.org. Pour ce faire :
+- Ouvrez OpenOffice.org Writer.
+- Sélectionnez le menu "Outils" / "Macros" / "Gérer les macros" / "OpenOffice.org Basic...".
+- Cliquez sur "Gérer".
+- Sélectionnez l'onglet "Bibliothèques".
+- Cliquez sur "Nouveau...".
+- Entrez "ConvertToPDF".
+- Sélectionnez l'onglet "Modules".
+- Dans "Mes macros", sélectionnez "ConvertToPDF" puis "Module1".
+- Cliquez sur "Éditer".
+- Remplacez le contenu de la zone d'édition par le contenu du fichier "convert_to_pdf.macro" de ce répertoire.
+- Sauvegardez ("Fichier/Enregistrer").
+- Fermez toutes les fenêtres.
+
+La compilation du document peut alors être lancée à l'aide de "make".
+
+

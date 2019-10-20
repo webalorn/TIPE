@@ -1,0 +1,26 @@
+SDL_Input_InsertMode()
+
+Name
+	SDL_Input_InsertMode -- Toggles insert and crush mode
+
+Synopsis
+	#include "SDL_Input.h"
+	SDL_INPUT_INSERT_MODE SDL_Input_InsertMode( SDL_INPUT_INSERT_MODE insMode );
+
+Description
+	This function accepts the following values as parameters:
+		-SDL_INPUT_INS_MOD_INSERT: Explicitly sets insert mode to 'insert';
+		-SDL_INPUT_INS_MOD_CRUSH:  Explicitly sets insert mode to 'crush';
+		-SDL_INPUT_INS_MOD_TOGGLE: Toggles actual insert mode (crush to insert
+			and vice-versa);
+		-SDL_INPUT_INS_MOD_QUERY:  Simply returns actual insert mode;
+
+Return Value
+	Returns actual insert mode.
+
+Undefined Behaviour
+
+Possible Failure Reasons
+
+See also
+	Definitions (SDL_INPUT_INSERT_MODE)

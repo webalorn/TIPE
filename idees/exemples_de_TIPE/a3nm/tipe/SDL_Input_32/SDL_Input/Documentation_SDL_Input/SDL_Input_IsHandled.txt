@@ -1,0 +1,26 @@
+SDL_Input_IsHandled()
+
+Name
+	SDL_Input_IsHandled -- Checks whether given event is handled by SDL_Input
+
+Synopsis
+	#include "SDL_Input.h"
+	int SDL_Input_IsHandled( SDL_Event event );
+
+Description
+	This function checks whether event is handled by the SDL_Input library.
+	unicode *MUST* have been enabled before event was catched for this function
+		to work properly!
+
+Return Value
+	1 if event is handleable or 0 otherwise.
+
+Undefined Behaviour
+	The behaviour is undefined if one of the following occurs:
+		-unicode was enabled but after event was catched
+
+Possible Failure Reasons
+	None
+
+See also
+	Definitions( SDL_INPUT_IS_PRINT )

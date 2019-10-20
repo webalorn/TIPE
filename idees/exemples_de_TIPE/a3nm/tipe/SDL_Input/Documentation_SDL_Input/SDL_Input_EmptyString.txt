@@ -1,0 +1,24 @@
+SDL_Input_EmptyString()
+
+Name
+	SDL_Input_EmptyString -- Resets string
+
+Synopsis
+	#include "SDL_Input.h"
+	void SDL_Input_EmptyString( SDL_Input *input );
+
+Description
+	Sets all bytes of input->string to '\0'.
+
+Return Value
+	None
+
+Undefined Behaviour
+	The behaviour is undefined if one of the following occurs:
+		-No particular UB;
+
+Possible Failure Reasons
+	None
+
+See also
+	SDL_Input_SetText

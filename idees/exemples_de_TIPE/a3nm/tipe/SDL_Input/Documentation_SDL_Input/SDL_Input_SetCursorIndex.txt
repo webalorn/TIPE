@@ -1,0 +1,22 @@
+SDL_Input_SetCursorIndex()
+
+Name
+	SDL_Input_SetCursorIndex -- Sets cursor index
+
+Synopsis
+	#include "SDL_Input.h"
+	int SDL_Input_SetCursorIndex( SDL_Input *input, long cursorIndex );
+
+Description
+	If cursorIndex is greater than -1 and lesser or equal to input->maxChars,
+		input->cursorIndex is affected cursorIndex value.
+
+Return Value
+	-1 if cursorIndex is invalid (see Description above) or 0 otherwise.
+
+Undefined Behaviour
+
+Possible Failure Reasons
+
+See also
+	SDL_Input_SetText

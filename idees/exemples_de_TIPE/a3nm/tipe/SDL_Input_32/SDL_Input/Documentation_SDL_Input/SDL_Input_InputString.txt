@@ -1,0 +1,51 @@
+SDL_Input_InputString()
+
+Name
+	SDL_Input_InputString -- Handles user input
+
+Synopsis
+	#include "SDL_Input.h"
+	int SDL_Input_InputString( SDL_Input *input, SDL_Event *p_event,
+		int *p_b_destRefresh, int *p_b_exit );
+
+Description
+	This function handles user's input. Calling this function is almost required
+		(can't think of any way SDL_Input could be useful if this function isn't
+		called).
+	This function (along with the whole SDL_Input library), relies on events'
+		unicode values. Shall p_event evaluate to NULL, this function will
+		call SDL_EnableUNICODE() if not already enabled. Otherwise, it'll exit
+		and return error state.
+	This function makes internal use of SDL_Input_InsertMode() (see the latter's
+		doc page for more infos).
+	No matter the value of p_event, input->lastEvent holds a copy of the last
+		event SDL_Input popped out of the queue.
+	
+	Parameters
+		input			-- Pointer to SDL_Input (this *MUST* be the result of a
+							previous call to SDL_Input_Create());
+		p_event			-- Pointer to SDL_Event. Shall p_event evaluates to
+							NULL, SDL_Input_InputString() will keep looping
+							until SDLK_RETURN is hit. Otherwise, function just
+							handles *p_event event and return control to caller;
+		p_b_destRefresh	-- Pointer to int. After the call, *p_b_destRefresh will
+							evaluate to 1 if string changed or to 0 otherwise.
+							This parameter may evaluate to NULL without any
+							problem;
+		p_b_exit		-- Pointer to int. Shall p_b_exit not be NULL, *p_b_exit
+							will equal 1 if SDLK_RETURN was pressed or 0
+							otherwise.
+
+Return Value
+	Returns 0 on succes or -1 if an error is encountered.
+
+Undefined Behaviour
+	Shall one of the following occur, the behaviour is undefined:
+		-input evaluates to something else than a valid SDL_Input structure
+			pointer;
+
+Possible Failure Reasons
+	TO BE COMPLETED
+
+See also
+	SDL_Input_Create, SDL_Input_IsHandled, SDL_Input_InsertMode

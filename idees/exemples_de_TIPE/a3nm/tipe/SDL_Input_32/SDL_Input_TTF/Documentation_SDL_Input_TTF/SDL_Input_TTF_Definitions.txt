@@ -1,0 +1,47 @@
+Macros and structures
+
+SDL_INPUT_TTF_VERSION()
+	Function-like macro storing major, minor and patch level of current version
+		in a SDL_Version pointer passed as parameter.
+
+SDL_INPUT_TTF_RENDER_TYPE
+	Enumeration used to determine what type of rendering when blitting input text.
+
+		SDL_INPUT_TTF_SOLID		--- Text will be rendered by function
+											TTF_RenderText_Solid();
+		SDL_INPUT_TTF_SHADED	---	Text will be rendered by function
+											TTF_RenderText_Shaded();
+		SDL_INPUT_TTF_BLENDED	--- Text will be rendered by function
+											TTF_RenderText_Blended();
+
+SDL_Input_TTF
+	SDL_Input_TTF library's main structure
+
+	Synopsis
+		typedef struct {
+			int offset;
+			SDL_INPUT_TTF_RENDER_TYPE rendering;
+			TTF_Font	*font;
+			SDL_Color	fg,
+						bg;
+			SDL_Rect	position;
+			SDL_Input	*input;
+		} SDL_Input_TTF;
+
+	Description
+		offset		-- Last computed offset of text (always call
+						SDL_Input_TTF_ComputeTextOffset() before reading value
+						of this field as it may not be accurate otherwise);
+		rendering	-- Render type (See SDL_INPUT_TTF_RENDER_TYPE above);
+		font		-- TTF_Font pointer (see SDL_TTF documentation for more
+						infos);
+		fg			-- Foreground color (text color);
+		bg			-- Background color (only useful if rendering evaluates to
+						SDL_INPUT_TTF_SHADED);
+		position	-- Position of blitted text (only fields x, y and w are
+						used);
+		input		-- SDL_Input pointer (See SDL_Input documentation for more
+						infos);
+
+See also
+	SDL_Input_TTF_Create
