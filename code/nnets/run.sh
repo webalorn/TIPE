@@ -1,0 +1,2 @@
+# sshpass -p "goto42Caro" ssh webalorn@90.110.84.24 -p 33001 "D: && cd D:\webalorn\Documents\tipe && set THEANO_FLAGS=device=cuda,floatX=float32 && set GPUARRAY_CUDA_VERSION=101_0 && set PATH=%PATH%;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin && D:\webalorn\anaconda\python.exe" -u - < $1
+sshpass -p "goto42Caro" ssh webalorn@90.110.84.24 -p 33001 "D: && cd D:\webalorn\Documents\tipe && D:\webalorn\anaconda\python.exe" -u - < $1
