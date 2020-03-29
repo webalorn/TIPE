@@ -83,12 +83,12 @@
 		\column{0.5\textwidth}
 			\sectitle{Le problème}
 			\begin{itemize}
-				\item Reconaissance d'espèces marines et d'objets divers
+				\item Reconaissance d'espèces marines et d'objets sous l'eau
 				\item En temps réel :
 				\begin{itemize}
-					\item Détection (???????)
 					\item Classification
 					\item Apprentissage de nouvelles données
+					\item Detection d'objets inconnus
 				\end{itemize}
 			\end{itemize}
 		
@@ -379,10 +379,10 @@
 		\column{0.5\textwidth}
 		\sectitle{Descente de gradient}
 		$$
-		W = W - \lambda \frac{\partial C}{\partial W}
+		W' = W - \lambda \frac{\partial C}{\partial W}
 		$$
 		$$
-		B = B - \lambda \frac{\partial C}{\partial B}
+		B' = B - \lambda \frac{\partial C}{\partial B}
 		$$
 		{\centering\includegraphics[width=\textwidth]{gradient.png}}
 	\end{columns}
@@ -406,7 +406,7 @@
 \begin{frame}{Améliorer l'entrainement}
 	\begin{columns}[T]
 		\column{0.5\textwidth}
-		\sectitle{Ajouter un moment au gradient}
+		\sectitle{Ajouter un moment au gradient [FAUX !!!]}
 		$$
 		M_W=M_W - \lambda \frac{\partial C}{\partial W}
 		$$

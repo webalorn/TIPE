@@ -10,6 +10,7 @@
 -   Conv networks : http://yann.lecun.com/exdb/publis/pdf/lecun-99.pdf
 -   Siamese networks : http://papers.nips.cc/paper/769-signature-verification-using-a-siamese-time-delay-neural-network.pdf
 -   [Underwater Fish Species Classification using Convolutional Neural Network and Deep Learning](https://arxiv.org/pdf/1805.10106.pdf)
+-   Adam paper : https://arxiv.org/pdf/1412.6980v8.pdf
 
 ### Delaunay :
 
@@ -44,3 +45,6 @@
 -   Autres
     -   https://www.whatsthatfish.com/
     -   [http://www.fishbase.org](http://www.fishbase.org/)
+    -   http://www.fishdb.com/
+    -   Maybe :
+        -   http://fishdb.sinica.edu.tw/eng/specimen_species.php

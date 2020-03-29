@@ -1,9 +1,14 @@
 import sys, os, json, fnmatch, time
 from tabulate import tabulate
 
-def matching(file_name, patterns):
+def matching(filename, patterns, path):
+	if "big_on" not in patterns and "big" in (path+"/"+filename):
+		return False
+	if "big_only" in patterns and "big" not in (path+"/"+filename):
+		return False
+
 	for patt in patterns:
-		if fnmatch.fnmatch(file_name, patt):
+		if fnmatch.fnmatch(filename, patt):
 			return True
 	return False
 
@@ -28,6 +33,10 @@ def compute_new_stats(stats, duration):
 	stats["duration"] = format_duration(duration)
 	return stats
 
+def list_files_in(path, in_paterns):
+	in_files = sorted([f for f in os.listdir(path) if matching(f, in_paterns, path)])
+	return [os.path.join(path, f) for f in in_files]
+
 def main():
 	if len(sys.argv) < 2:
 		print("Error, run.py needs at least one argument")
@@ -39,13 +48,11 @@ def main():
 		model_l = model.split("/")
 		model = "/".join(model_l[:-1])
 		filename = model_l[-1][:-4]
+	in_paterns = ["*.in"] + sys.argv[2:]
+	real_filename = "{}/{}.cpp".format(model, filename)
 
-	in_paterns = sys.argv[2:]
-	if not in_paterns:
-		in_paterns = ["*.in"]
-
-	in_files = sorted([f for f in os.listdir("tests") if matching(f, in_paterns)])
-	in_files_paths = ["tests/"+f for f in in_files]
+	in_files_paths = list_files_in("tests", in_paterns)
+	in_files_paths += list_files_in("tests/bigs", in_paterns)
 	test_results = []
 
 	print("Compiling...")
@@ -55,6 +62,7 @@ def main():
 		exit(-1)
 	print("Running...")
 	for test_path in in_files_paths:
+		print("-", test_path, " "*30, end="\r")
 		out_file = os.path.join(model, "out")
 		start_at = time.time()
 		os.system("{}/{}.o < {} > {}".format(model, filename, test_path, out_file))
@@ -62,6 +70,7 @@ def main():
 
 		with open(out_file) as f:
 			test_results.append(compute_new_stats(json.load(f), end_at-start_at))
+	print(" "*60)
 
 	if test_results:
 		print(test_results[0].keys())
@@ -77,10 +86,10 @@ def main():
 		headers.append("Errors")
 		r_keys.append("error")
 
-	for test_file, result in zip(in_files, test_results):
-		table.append([test_file] + [result[k] if k in result else "-" for k in r_keys])
+	for test_file, result in zip(in_files_paths, test_results):
+		table.append([test_file.split("/")[-1]] + [result[k] if k in result else "-" for k in r_keys])
 
-	print("\nTEST RESULTS FOR \"{}\"".format(model))
+	print("\nTEST RESULTS FOR \"{}\" ({})".format(model, real_filename))
 	print(tabulate(table, headers, tablefmt="grid"))
 	
 

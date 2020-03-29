@@ -2,9 +2,9 @@
 #include "../includes/graphs.hpp"
 #include <cstdio>
 
-const int K_INSERTION = 8;
+const int K_INSERTION = 16;
 const int REQ_FACT = 2; // 1-2
-const int REQ_MIN = 2; // 1-8
+const int REQ_MIN = 8; // 1-8
 const int N_ATTEMPT = 3;
 
 void Prog::run(int nbDim, int nbPoints, int nbNeighbours, int nbQueries,

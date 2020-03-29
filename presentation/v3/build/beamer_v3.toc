@@ -1,0 +1,5 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Premières méthodes de classification}{5}{0}{1}
+\beamer@sectionintoc {2}{Transformation de l'image}{21}{0}{2}
+\beamer@sectionintoc {3}{Classification rapide avec K plus proches voisins}{29}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{35}{0}{4}

@@ -19,8 +19,7 @@ void Prog::run(int nbDim, int nbPoints, int nbNeighbours, int nbQueries,
 	for (auto target : queries) {
 		int stepsBefore = graph.nav_stats.nbSteps;
 
-		vector<int> ans;
-		ans = graph.getKnearest(0, target, max(REQ_MIN, nbNeighbours*REQ_FACT));
+		vector<int> ans = graph.getKnearest(0, target, max(REQ_MIN, nbNeighbours*REQ_FACT));
 		ans.resize(nbNeighbours);
 		stats.answer(ans, graph.nav_stats.nbSteps - stepsBefore);
 	}

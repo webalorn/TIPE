@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.4.17)  7 SEP 2019 13:48
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.4.17)  7 NOV 2019 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1861,7 +1861,7 @@ Overfull \vbox (13.79993pt too high) detected at line 77
 [1
 
 ]
-Overfull \vbox (19.35419pt too high) detected at line 114
+Overfull \vbox (21.08218pt too high) detected at line 114
  []
 
 [2
@@ -2209,7 +2209,7 @@ Package rerunfilecheck Info: File `v2.out' has not changed.
 Here is how much of TeX's memory you used:
  41106 strings out of 492970
  861186 string characters out of 6133938
- 1011921 words of memory out of 5000000
+ 1011925 words of memory out of 5000000
  44344 multiletter control sequences out of 15000+600000
  542969 words of font info for 105 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

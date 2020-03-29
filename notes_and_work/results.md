@@ -38,11 +38,23 @@
 | --------- | --------- | ---------- |
 | 99.33%    | 95.60%    | 91.35%     |
 
-## ConNet
+## ConvNet
 
 | 3 species | 6 species | 23 species |
 | --------- | --------- | ---------- |
 | 99.50%    | 97.73%    | 96.96%     |
+
+## ConvNet + Data augmentation
+
+| Model | Saved at | 23 species |
+| --------- | --------- | ---------- |
+| fish 1, conv_3 | fishes/checkpoint_conv_3/weights_1.7.hdf5 | 97.90% |
+
+## ConvNet light + Data augmentation
+
+| Model | Saved at | 23 species |
+| --------- | --------- | ---------- |
+| fish 1, conv_light | fishes/checkpoint_conv_light/weights_1.7.hdf5 | 97.12% |
 
 ## MobileNet + Siamese
 
@@ -50,19 +62,101 @@
 | ------------------- | ----------------- |
 | 26%                 | 67%               |
 
-## Siamese
+## Siamese (convNet without TL) [conv_2]
 
 | 173 species (train) | 23 species (test) |
 | ------------------- | ----------------- |
 |                     |                   |
 
-## ConvNet Transfer learning + Siamese
+## ConvNet + Siamese + Transfer learning
 
 | 173 species (train) | 23 species (test) |
 | ------------------- | ----------------- |
 | 91.85%              | 61.29%            |
 
+## LARGE DATASETS
 
+(Aléatoire < 0.1 %)
+
+### KNN
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 4.4%                 | 3%                  |
+
+### ConvNet
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 99.86%               | 4.95%               |
+
+### Siamese [conv_2]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 84.2% [tmp]          | 4.2%                |
+
+### Siamese + TL [pretrained_2]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 84.2% | 3.6% |
+
+### Siamese + TL [pretrained_2_2]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 82.2% | 4.6* |
+
+### Siamese [conv_light_1]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 73% | 4.8% |
+
+### Siamese [conv_light_2]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 10.6%<br />1.1 : 11.2 | 7%<br />1.1 : 9.4 |
+
+### Siamese [mobile_net direct]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 16%                  | 19.4%               |
+
+### Siamese [mobile_net + 11 layers ré-entrainés]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 16.4%                | 22.6%               |
+
+### Siamese [mobile_net + 11 layers ré-entrainés + reduit à 32 dim]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 4.4                  | 7                   |
+
+### Siamese [mobile_net + 1 dense reduisant à 32 dim]
+
+| 1566 species (train) | 1566 species (test) |
+| -------------------- | ------------------- |
+| 6.6                  | 8.2                 |
+
+## With characters
+
+### KNN
+
+| x characters (train) | y characters (test) |
+| -------------------- | ------------------- |
+| %         | %                |
+
+### Siamese [?]
+
+| x characters (train) | y characters (test) |
+| -------------------- | ------------------- |
+| %         | %                |
 
 
 
@@ -555,11 +649,32 @@ C5 -> 1[C4] 50[C5] 0[C6]
 C6 -> 0[C4] 0[C5] 50[C6] 
 ```
 
-## 1601 species
+## 1566 species
+
+### Conv 1 
+
+```
+===== TRAINING STATS =====
+Accuracy : 99.85705209656925%
+===== TESTING STATS =====
+Accuracy : 4.948364888123924%
+```
+
+### Conv 3
+
+```
+===== TRAINING STATS =====
+Accuracy : 99.84116899618806%
+===== TESTING STATS =====
+Accuracy : 4.776247848537006%
+```
+
+
 
 # Siamese network
 
 
 
-## 1601 species
+## 1566 species
 
+Accuracy : 12.6% | 17.2% | 17.2% | 18.6% | 23.2% | 29.6 | ... | 82.6%

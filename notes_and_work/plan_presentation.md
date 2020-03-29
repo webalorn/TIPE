@@ -3,16 +3,18 @@
 À faire (présentation) :
 
 -   Titre
-    -   Reconnaissance efficace d’objets sous-marins
+    -   Reconnaissance rapide d’objets sous-marins
+-   Mettre les répartitions des donnnées
+-   Parler des caractères
+-   exppliquer bien la nouvelle problématique : gérer l'innatendu
 -   Problématique
     -   Comment rapidement détecter et savoir reconnaitre de nouveaux objets sous-marins avec peu de données ?
+    -   Plus de ressemblance avec un être vivant  / autonome en apprenant ?
 -   Ligne directrice OK ?
--   Contact avec un professionel / une entreprise ?
-    -   Données ?
--   Meilleurs données ? (APRÈS KNN !!!) [autres types, possiblement] (ou fonds, divers types de fonds, algues, etc...)
 -   Si nouvelles données, ajouter
 -   TRES IMPORTANT : Annexes avec tout ce qui ne tient pas, des trucs en plus, les dérivées d’un réseau, de tanh, sigmoid, etc… (+ des stats ?)
 -   Beamer : refaire intro + plan
+-   Annexe beamer + rapport : toutes les couches, les fonctions, etc sous forme de doc de reférence + les architectures
 
 ENS : beamer ? Comment se passe la présentation ? Faire un beamer support pout tout, plutôt ?
 
@@ -25,9 +27,11 @@ ENS : beamer ? Comment se passe la présentation ? Faire un beamer support pout 
 
 Réaliser des illustrations
 
+Solutions constantes plutôt qu’aléatoire ? Parler systèmes déjà existants, et de reconaissance signature / faciale. Pas mettre en avant le jargon.
+
 ### Rapport ENS :
 
--   6 pages MAX + références bibliographiques, annexes et figures
+-   6 pages MAX (notice : 2 à 5 pages, max 12 500 caractères) + références bibliographiques, annexes et figures
     -   synthétique, lisible et citer ses sources
     -   tous les candidats incluent en annexe l’intégralité de leur code
     -   biblio de bonne qualité scientifique
@@ -38,7 +42,7 @@ Réaliser des illustrations
 
 ### Intro
 
-Objectif : Système pouvant reconnaitre un nombre large de catégories avec peu d’images et sans ré-entrainer le système pour une nouvelle catégorie.
+Objectif : Système pouvant reconnaitre un nombre large de catégories avec peu d’images et sans ré-entrainer le système pour une nouvelle catégorie, ou ajouter de nouvelles données.
 
 ### Partie 0 : détection d'objets
 
@@ -86,6 +90,8 @@ TODO
 -   En utilisant un CNN entrainé sur Image-Net, résultats hauts avant même d'entrainer
 
 Le système est donc fonctionnel, mais nécessiterait plus de données, de meilleure qualité, et plus de puissance de calcul pour aller à son potentiel maximum. Entrainer sur des données / problèmes plus larges au préalable est une voie.
+
+Une autre voie est de segmenter l’image, supprimer le fond et identifier clairement l’objet. On pourrait aussi entrainer le réseau de neuronnes à donner des caractéristiques choisies à la main pour chaque image.
 
 
 
